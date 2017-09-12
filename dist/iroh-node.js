@@ -1171,10 +1171,7 @@ STAGE1.NewExpression = function(node, patcher) {
         type: "Identifier",
         name: patcher.instance.getLink("DEBUG_OP_NEW")
       },
-      arguments: [
-        parseExpression(hash),
-        ...args
-      ]
+      arguments: [parseExpression(hash)].concat(args)
     },
   ];
 };
