@@ -1,3 +1,5 @@
+"use strict";
+
 var acorn = require('acorn');
 var astring = require('astring');
 var acorn_dist_walk = require('acorn/dist/walk');
