@@ -3537,7 +3537,10 @@ var _debug = Object.freeze({
 });
 
 class Stage {
-  constructor(input, opt = {}) {
+  constructor(input, opt) {
+    
+    if(opt == undefined) opt = {};
+    
     // validate
     if (typeof input !== "string") {
       throw new Error(`Expected input type string, but got ${typeof input}`);
