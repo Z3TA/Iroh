@@ -3110,7 +3110,9 @@ function DEBUG_OP_NEW(hash, ctor, args) {
   frame.values = [hash, event.ctor, event.arguments];
   // FRAME END
 
-  return new event.ctor(...event.arguments);
+  //return new event.ctor(...event.arguments);
+  return new (Function.prototype.bind.apply(event.ctor, event.arguments));
+  
 }
 function DEBUG_OP_NEW_END(hash, self, ret) {
   self.indent -= INDENT_FACTOR;
