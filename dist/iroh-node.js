@@ -2623,7 +2623,7 @@ function evalBinaryExpression(op, a, b) {
     case OP["*"]:          return a * b;
     case OP["/"]:          return a / b;
     case OP["%"]:          return a % b;
-    case OP["**"]:         return a ** b;
+    case OP["**"]:         return Math.pow(a, b);
     case OP["<<"]:         return a << b;
     case OP[">>"]:         return a >> b;
     case OP[">>>"]:        return a >>> b;
@@ -2654,7 +2654,7 @@ function evalObjectAssignmentExpression(op, obj, prop, value) {
     case OP["*"]:   return obj[prop] *=   value;
     case OP["/"]:   return obj[prop] /=   value;
     case OP["%"]:   return obj[prop] %=   value;
-    case OP["**"]:  return obj[prop] **=  value;
+    case OP["**"]:  return Math.pow(obj[prop], value);
     case OP["<<"]:  return obj[prop] <<=  value;
     case OP[">>"]:  return obj[prop] >>=  value;
     case OP[">>>"]: return obj[prop] >>>= value;
