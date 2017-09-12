@@ -941,7 +941,7 @@ STAGE1.CallExpression = function(node, patcher) {
       {
         magic: true,
         type: "ArrayExpression",
-        elements: [...node.arguments]
+        elements: node.arguments.slice(0)
       }
     ]
   };
@@ -991,7 +991,7 @@ STAGE1.BreakStatement = function(node, patcher) {
     node: cloneNode(node)
   };
   let label = parseExpression(
-    node.label ? `"${node.label.name}"` : "null"
+  node.label ? `"${node.label.name}"` : "null"
   );
   let expr = {
     magic: true,
@@ -1145,7 +1145,7 @@ STAGE1.NewExpression = function(node, patcher) {
     {
       magic: true,
       type: "ArrayExpression",
-      elements: [...node.arguments]
+      elements: node.arguments.slice(0)
     }
   ];
   let hash = uBranchHash();
@@ -1154,7 +1154,7 @@ STAGE1.NewExpression = function(node, patcher) {
     hash: hash,
     node: cloneNode(node)
   };
-
+  
   node.callee = {
     magic: true,
     type: "Identifier",
