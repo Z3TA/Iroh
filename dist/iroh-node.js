@@ -3920,12 +3920,12 @@ const iroh = new Iroh();
 
 // intercept Stage instantiations
 let _Stage = function() {
-  let stage = new Stage(...arguments);
+  let stage = new Stage(arguments[0], arguments[1]);
   // register stage to iroh stages
-  // so we can keep track of it
-  iroh.stages[stage.key] = stage;
-  return stage;
-};
+    // so we can keep track of it
+    iroh.stages[stage.key] = stage;
+    return stage;
+  };
 _Stage.prototype = Object.create(Stage.prototype);
 iroh.Stage = _Stage;
 
